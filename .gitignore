@@ -1,6 +1,5 @@
 # Folder view configuration files
 .DS_Store
 # img
-*.png
 *.html
 current_installation
