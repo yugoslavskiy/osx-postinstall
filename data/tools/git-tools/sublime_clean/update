@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+PREVIUS_BIN_FOLDER=$( cat current_installation )
+TOOL_NAME=${PWD##*/}
+
+rm -fv $PREVIUS_BIN_FOLDER/${TOOL_NAME} || exit 102
+./install $PREVIUS_BIN_FOLDER || exit 103
+
+exit 0

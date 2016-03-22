@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+SRC_FOLDER=$( cat current_installation | cut -d ':' -f 2 )
+TOOL_NAME=${PWD##*/}
+
+cd ${SRC_FOLDER}/${TOOL_NAME} || exit 101
+git pull || exit 116
+exit 0

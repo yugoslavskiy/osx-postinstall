@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+SRC_FOLDER=$2
+TOOL_NAME=${PWD##*/}
+
+git clone https://github.com/yugoslavskiy/osx-clear-browser-histories.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+
+pushd ${SRC_FOLDER}/${TOOL_NAME} || exit 101
+for SCRIPT in $(ls *.sh)
+do
+	LINK_NAME=$( echo ${SCRIPT} | cut -d '.' -f 1 )
+	chmod +x ${SCRIPT} || exit 109
+	ln -sfhv "${SRC_FOLDER}/${TOOL_NAME}/${SCRIPT}" ${BIN_FOLDER}/${LINK_NAME} || exit 107
+done
+popd || exit 101
+
+echo "${BIN_FOLDER}:${SRC_FOLDER}" > current_installation
+
+exit 0

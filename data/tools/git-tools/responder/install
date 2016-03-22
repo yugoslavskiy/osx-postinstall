@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+SRC_FOLDER=$2
+TOOL_NAME=${PWD##*/}
+
+git clone https://github.com/SpiderLabs/Responder.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+
+file=${BIN_FOLDER}/${TOOL_NAME};
+cat <<EOF > "${file}" || exit 108
+#!/usr/bin/env bash
+
+echo ""
+echo "For OSX, please note - to run Responder with the best experience, run the following as root:"
+echo ""
+echo "launchcl unload /System/Library/LaunchDaemons/com.apple.Kerberos.kdc.plist  "
+echo "launchcl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist "
+echo "launchcl unload /System/Library/LaunchDaemons/com.apple.smbd.plist          "
+echo "launchcl unload /System/Library/LaunchDaemons/com.apple.netbiosd.plist      "
+echo ""
+
+cd ${SRC_FOLDER}/${TOOL_NAME} && sudo python Responder.py "\$@"
+EOF
+chmod +x "${file}" || exit 109
+
+echo "${BIN_FOLDER}:${SRC_FOLDER}" > current_installation
+
+exit 0

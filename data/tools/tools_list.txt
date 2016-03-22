@@ -1,0 +1,251 @@
+# each line consist of:
+#     - tool:id
+# id:
+#     0 - brew install
+#     1 - brew cask install
+#     2 - pip install
+#     3 - gem install
+#     4 - brew tap
+#     5 - vagrant plugin install
+#     6 - ln -sfv /usr/local/opt/<tool>/*.plist ~/Library/LaunchAgents
+
+# initial (taps)
+homebrew/apache:4
+#homebrew/devel-only:4
+homebrew/fuse:4
+homebrew/nginx:4
+homebrew/science:4
+homebrew/x11:4
+homebrew/binary:4
+homebrew/dupes:4
+#homebrew/games:4
+#homebrew/php:4
+#homebrew/tex:4
+homebrew/completions:4
+#homebrew/emacs:4
+homebrew/gui:4
+homebrew/python:4
+homebrew/versions:4
+
+# cask setup
+caskroom/cask/brew-cask:0
+caskroom/cask:4
+caskroom/fonts:4
+caskroom/versions:4
+
+# completions
+homebrew/completions/brew-cask-completion:0
+homebrew/completions/docker-machine-completion:0
+homebrew/completions/boot2docker-completion:0
+homebrew/completions/vagrant-completion:0
+homebrew/completions/docker-completion:0
+bash-completion2:0
+pip-completion:0
+
+# common
+git:0
+wget:0
+curl:0
+tmux:0
+ruby:0
+zsh:0
+bash:0
+python:0
+java:1
+bundler:3
+
+# compilers
+autoconf:0
+boost:0
+automake:0
+
+# db
+sqlite:0
+#mongodb:0
+mysql:0
+
+# dev
+--upgrade pip:2
+bpython:2
+pygame:0
+github-desktop:1
+sublime-text3:1
+pycharm:1
+#webstorm:1
+vim --override-system-vi:0
+
+# system
+dfc:0
+htop:0
+ncdu:0
+pv:0
+iterm2-nightly:1
+macpaw-gemini:1
+karabiner:1
+midnight-commander:0
+xquartz:1
+#rdesktop:0
+font-meslo-lg-for-powerline:1
+paragon-ntfs:1
+
+# network
+gns3:1
+httpie:0
+wireshark:1
+netcat:0
+iperf:0
+ngrep:0
+proxychains-ng:0
+
+# archivators
+unar:0
+unrar:0
+lz4:0
+the-unarchiver:1
+xz:0
+
+# for OCR function
+imagemagick --with-libtiff --with-ghostscript:0
+tesseract --with-all-languages:0
+
+# text & doc & image tools
+colordiff:0
+poppler:0
+pandoc:0
+leptonica:0
+cheat:0
+ghostscript:0
+#qlmarkdown:1
+microsoft-office:1
+#openoffice:1
+wkhtmltopdf:1
+xmind:1
+
+# gnu
+grep:0
+findutils:0
+gnu-tar:0
+gnu-sed:0
+coreutils:0
+gnu-indent:0
+gawk:0
+gnutls:0
+gnu-getopt:0
+tree:0
+
+# video players
+vlc:1
+
+# cloud drivers
+dropbox:1
+
+# virtualisation
+docker-machine-parallels:0
+docker:0
+boot2docker:0
+qemu:0
+virtualbox:1
+parallels-desktop:1
+vagrant:1
+vagrant-manager:1
+vagrant-parallels:5
+
+# browsers
+#google-chrome:1
+firefox:1
+chromium:1
+
+# messengers & voice
+#telegram:1
+skype:1
+#viber:1
+#x-lite:1
+
+# ssh
+openssh:0
+osxfuse:1
+sshfs:1
+sshuttle:0
+autossh:0
+ssh-copy-id:0
+
+# defensive
+blockblock:1
+knockknock:1
+gpgtools:1
+osquery:0
+lynis:0
+dhs:1
+ostiarius:1
+utox:1
+tor:0
+tor:6
+torsocks:0
+mat --with-exiftool --with-python:0
+exiftool:0
+geoip:0
+
+# offensive
+nmap:0
+aircrack-ng:0
+sshtrix:0
+dnsmap:0
+fcrackzip:0
+hydra:0
+ipv6toolkit:0
+john-jumbo:0
+reaver:0
+skipfish:0
+sqlmap:0
+theharvester:0
+winexe:0
+bettercap:3
+wafw00f:2
+hashID:2
+xortool:2
+scapy:2
+bonjour-browser:1
+hashcat:1
+hping:0
+nikto:0
+hex-fiend:1
+
+# python
+ipwhois:2
+whois:2
+Pygments:2
+path-and-address:2
+colored:2
+html2text:2
+ipaddress:2
+Markdown:2
+MarkupSafe:2
+netaddr:2
+netifaces:2
+netlib:2
+pcapy:2
+percol:2
+progressbar:2
+psutil:2
+pycparser:2
+pycrypto:2
+pycurl:2
+pyftpdlib:2
+pyobjc:2
+pyparsing:2
+pyperclip:2
+requests:2
+requirements:2
+scipy:2
+Scrapy:2
+setuptools:2
+six:2
+termcolor:2
+tornado:2
+transliterate:2
+Twisted:2
+urwid:2
+vboxapi:2
+w3lib:2
+xattr:2
+xlrd:2

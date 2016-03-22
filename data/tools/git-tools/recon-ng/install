@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+SRC_FOLDER=$2
+TOOL_NAME=${PWD##*/}
+
+git clone https://bitbucket.org/LaNMaSteR53/recon-ng.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+
+pushd ${SRC_FOLDER}/${TOOL_NAME} || exit 101
+git pull || exit 116
+pip install -r REQUIREMENTS || exit 102105
+popd || exit 101
+
+ln -sfhv "${SRC_FOLDER}/${TOOL_NAME}/recon-ng" ${BIN_FOLDER}/${TOOL_NAME} || exit 107
+
+echo "${BIN_FOLDER}:${SRC_FOLDER}" > current_installation
+
+exit 0

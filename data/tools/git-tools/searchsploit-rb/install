@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+SRC_FOLDER=$2
+TOOL_NAME=${PWD##*/}
+
+git clone https://github.com/yugoslavskiy/searchsploit-rb.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+
+ln -sfhv "${SRC_FOLDER}/${TOOL_NAME}/searchsploit-rb" ${BIN_FOLDER}/${TOOL_NAME} || exit 107
+
+echo "${BIN_FOLDER}:${SRC_FOLDER}" > current_installation
+
+exit 0
