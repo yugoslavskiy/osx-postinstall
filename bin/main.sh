@@ -72,10 +72,7 @@ while test "$#" != 0; do
     shift
 done
 
-# Defaults
-PATH_TO_ST3_CONFIG_FILES=../data/settings/sublime/
-PATH_TO_TOOLS_LIST=../data/tools/tools_list.txt
-PATH_TO_GIT_TOOLS=../data/tools/git-tools
+source defaults.sh
 
 # Ask for admin password
 printf "${YELLOW}[!] I need root password for installations.${NORMAL}\n"

@@ -16,19 +16,6 @@
 # - tool update itself: 113
 # - pip install: 114
 
-# make it quietly:
-# sed -i -E 's/git pull/git pull -q/g'  -E */*
-# sed -i -E 's/git clone/git clone -q/g'  -E */*
-#
-# add ``>& /dev/null'' to the ind if line with 
-# - popd/pushd
-# - pip
-# - ln
-# - curl
-# - gem
-# - bundle
-# - something else?
-
 # Use colors, but only if connected to a terminal, and that terminal
 # supports them.
 if which tput >/dev/null 2>&1; then
@@ -50,17 +37,12 @@ else
   NORMAL=""
 fi
 
-# Defaults
-SRC_DIR=~/src
-BIN_DIR=~/bin
-GIT_UPDATE=n
-LIST_TOOLS=n
-TOOL_NAME=all
+source defaults.sh
 
 usage() {
   echo "${BOLD}Usage:${NORMAL}"
   echo ""
-  echo "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}--git_tools_dir${NORMAL} <value> [${BLUE}--tool${NORMAL} <value>] [${BLUE}--src_dir${NORMAL} <value>] [${BLUE}--bin_dir${NORMAL} <value>] [${BLUE}--update${NORMAL}] [${BLUE}--list${NORMAL}]"
+  echo "   ${GREEN}./$(basename "$0")${NORMAL} [${BLUE}--git_tools_dir${NORMAL} <value>] [${BLUE}--tool${NORMAL} <value>] [${BLUE}--src_dir${NORMAL} <value>] [${BLUE}--bin_dir${NORMAL} <value>] [${BLUE}--update${NORMAL}] [${BLUE}--list${NORMAL}] [--verbose]"
   echo ""
   echo "${BOLD}Options:${NORMAL}"
   echo ""
@@ -75,6 +57,8 @@ usage() {
   echo "      ${BLUE}--update${NORMAL}          Update all git-tools (${YELLOW}default: ${BOLD}not${NORMAL})"
   echo ""
   echo "      ${BLUE}--list${NORMAL}            List all existing git-tools (${YELLOW}default: ${BOLD}not${NORMAL})"
+  echo ""
+  echo "      ${BLUE}--verbose${NORMAL}         Be verbose"
   echo ""
 }
 
@@ -101,6 +85,7 @@ while [[ "${#}" -gt 0 && ."${1}" == .-* ]]; do
 
     --list|-list ) LIST_TOOLS=y;;
     --update|-update ) GIT_UPDATE=y ;;
+    --verbose|-verbose|-v ) VERBOSE=y ;;
      *) printf '\n'${RED}'[!]'${NORMAL}" Unknown option: ${RED} ${opt} ${NORMAL}\n\n" 1>&2 ; usage; exit 1;;
    esac
 done
@@ -135,25 +120,39 @@ do
   then
     if [ $LIST_TOOLS != 'y' ]
     then 
-      pushd ${git_tool}
-      printf "\n${GREEN}[+]${NORMAL} ${PROCESS} ${GREEN}${git_tool}${NORMAL} --- ${YELLOW}$(cat description)${NORMAL}\n\n"
-      bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" || {
-        printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}\n"
-      }
-      popd
+      pushd ${git_tool} >& /dev/null
+      printf "${GREEN}[+]${NORMAL} ${PROCESS} ${GREEN}${git_tool}${NORMAL} --- ${YELLOW}$(cat description)${NORMAL}\n"
+      if [ ${VERBOSE} = "y" ]
+      then 
+        bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" || {
+          printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}\n"
+        }
+      else
+        bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" >& /dev/null || {
+          printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}. Use ${BLUE}--verbose${NORMAL} flag for more info.\n"
+        }
+      fi
+      popd >& /dev/null
     else 
       echo ${git_tool}
     fi
-  elif [ $TOOL_NAME = $git_tool ] 
+  elif [ $TOOL_NAME = $git_tool ]
   then
     if [ $LIST_TOOLS != 'y' ]
     then
-      pushd ${git_tool}
-      printf "\n${GREEN}[+]${NORMAL} ${PROCESS} ${GREEN}${git_tool}${NORMAL} --- ${YELLOW}$(cat description)${NORMAL}\n\n"
-      bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" || {
-        printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}\n"
-      }
-      popd
+      pushd ${git_tool} >& /dev/null
+      printf "${GREEN}[+]${NORMAL} ${PROCESS} ${GREEN}${git_tool}${NORMAL} --- ${YELLOW}$(cat description)${NORMAL}\n"
+      if [ ${VERBOSE} = "y" ]
+      then 
+        bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" || {
+          printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}\n"
+        }
+      else
+        bash "${ACTION}" "${BIN_DIR}" "${SRC_DIR}" >& /dev/null || {
+          printf "\n${RED}[!] Error: ${git_tool} ${FAIL} failed.${NORMAL}. Use ${BLUE}--verbose${NORMAL} flag for more info.\n"
+        }
+      fi
+      popd >& /dev/null
     else
       echo ${git_tool}
     fi
@@ -162,6 +161,6 @@ done
 
 #-Done-----------------------------------------------------------------------#
 
-printf "\n${GREEN}[+] github / gist / bitbucket${NORMAL} tools are ${COMPLETE}.\n\n"
+#printf "\n${GREEN}[+] github / gist / bitbucket${NORMAL} tools are ${COMPLETE}.\n\n"
 
 exit 0

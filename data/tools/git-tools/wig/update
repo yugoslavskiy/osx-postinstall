@@ -1,9 +1,13 @@
 #!/usr/bin/env bash
 
+# No arguments needed, only hardcoded command for update
+# The file is almost universal
+
 SRC_FOLDER=$( cat current_installation | cut -d ':' -f 2 )
 TOOL_NAME=${PWD##*/}
 
 cd ${SRC_FOLDER}/${TOOL_NAME} || exit 101
+
 git pull || exit 116
 
 exit 0

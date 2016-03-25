@@ -51,6 +51,7 @@ ruby:0
 zsh:0
 bash:0
 python:0
+python3:0
 java:1
 bundler:3
 

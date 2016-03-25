@@ -4,7 +4,7 @@ BIN_FOLDER=$1
 SRC_FOLDER=$2
 TOOL_NAME=${PWD##*/}
 
-git clone https://github.com/yugoslavskiy/searchsploit-rb.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+git clone -q https://github.com/yugoslavskiy/searchsploit-rb.git ${SRC_FOLDER}/${TOOL_NAME} || exit 105
 
 ln -sfhv "${SRC_FOLDER}/${TOOL_NAME}/searchsploit-rb" ${BIN_FOLDER}/${TOOL_NAME} || exit 107
 

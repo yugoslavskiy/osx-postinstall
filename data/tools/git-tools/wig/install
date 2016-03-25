@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+SRC_FOLDER=$2
+
+# Name of the directory = it name of future ``$SRC_FOLDER'' directory (with git-repo) = name for link in ``$BIN_FOLDER''
+TOOL_NAME=${PWD##*/}
+
+#
+# CLONE REPO
+#
+
+git clone https://github.com/jekyc/wig ${SRC_FOLDER}/${TOOL_NAME} || exit 105
+
+# this line helps for update and remove repo in future
+echo "${BIN_FOLDER}:${SRC_FOLDER}" > current_installation
+
+#
+# CREATE LINK / SCRIPT
+#
+
+file=${BIN_FOLDER}/${TOOL_NAME};
+cat <<EOF > "${file}" || exit 108
+#!/usr/bin/env bash
+
+cd ${SRC_FOLDER}/${TOOL_NAME} && python3 wig.py "\$@"
+EOF
+chmod +x "${file}" || exit 109
+
+exit 0

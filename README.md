@@ -6,7 +6,7 @@ Set of post-installation scripts for OS X 10.11 (El Capitan)
 
 ### Main thing
 
-Script install [BlockBlock](https://objective-see.com/products/blockblock.html) and apply [OS X Lockdown](https://github.com/SummitRoute/osxlockdown) settings (optionally) ***before*** all installations. So, you can control Launch Agents installations with BlockBlock and pray for OSX Lockdown hardening settings, because there is [no](http://www.pcworld.com/article/3035682/security/hackers-planted-a-backdoor-inside-a-compromised-version-of-linux-mint.html) [silver](http://www.macrumors.com/2016/03/07/transmission-malware-downloaded-6500-times/) [bullet](http://arstechnica.com/security/2015/07/how-a-russian-hacker-made-45000-selling-a-zero-day-flash-exploit-to-hacking-team/) for your security. Whatever, we will do all possible for it, right?
+Script install [BlockBlock](https://objective-see.com/products/blockblock.html) and apply [OS X Lockdown](https://github.com/SummitRoute/osxlockdown) settings (optionally) ***before*** all installations. So, you can control Launch Agents installations with BlockBlock and pray for OSX Lockdown hardening settings, because there is [no](http://www.pcworld.com/article/3035682/security/hackers-planted-a-backdoor-inside-a-compromised-version-of-linux-mint.html) [silver](http://www.macrumors.com/2016/03/07/transmission-malware-downloaded-6500-times/) [bullet](http://arstechnica.com/security/2015/07/how-a-russian-hacker-made-45000-selling-a-zero-day-flash-exploit-to-hacking-team/). Whatever, we will do all possible for it, right?
 
 ### Under the hood
 
@@ -22,14 +22,17 @@ Script install [BlockBlock](https://objective-see.com/products/blockblock.html) 
   + **settings/** - ST3, iTerm and Karabiner settings
   + **tools/**:
     * **git-tools/** - set of tools which you want to install via git
-    * `tools_list.txt` - lists of tools which you want to install via brew, cask, gem, pip, etc
+    * **git-tools-template/** - template for future git-tools installations
+    * `tools_list.txt` - lists of tools which you want to install via brew, brew cask, gem, pip, etc
 
 ## Usage
+
+### brew / cask / pip / gem tools
 
 1. Install Xcode via App Store
 2. Download [zip archive](https://github.com/yugoslavskiy/osx-postinstall/archive/master.zip) of the repo
 3. Unzip it using GUI or `unzip` tool via Terminal.app
-4. Edit `tools_list.txt` using format that shown below:
+4. Edit `data/tools/tools_list.txt` using format that shown below:
   ```bash
 $ head  data/tools/tools_list.txt
 # each line consist of:
@@ -46,9 +49,23 @@ $ head  data/tools/tools_list.txt
 
 5. Go to `bin/`, then run `./main.sh --help` and choose available options
 
+### git tools
+
+1. Go to `data/tools/git-tools` folder, and add (using `git-tools-template`) or delete git tools
+2. Go to `bin/`, then run `./git_install.sh --help` and choose available options
+
+### other `bin/` scripts
+
+For more info:
+
+- `msf_install.sh --help`
+- `cat osxdefaults.sh`
+- `cat osxlockdown.sh` (not all options enabled by default! see comments)
+- `cat sublime_setup.sh`
+
 ## Manual installations
 
-### Karabiner 
+### Karabiner
 
 Run Karabiner and set check mark `Overwrite the key repeat values of system`:
 ![Karabiner.png](img/Karabiner.png)
