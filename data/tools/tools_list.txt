@@ -180,7 +180,7 @@ dhs:1
 ostiarius:1
 utox:1
 tor:0
-tor:6
+#tor:6
 torsocks:0
 mat --with-exiftool --with-python:0
 exiftool:0
