@@ -116,11 +116,24 @@ pandoc:0
 leptonica:0
 cheat:0
 ghostscript:0
-#qlmarkdown:1
 microsoft-office:1
 #openoffice:1
 wkhtmltopdf:1
 xmind:1
+
+# Quick Look plugins
+# https://github.com/sindresorhus/quick-look-plugins
+qlmarkdown:1
+qlcolorcode:1
+qlstephen:1
+qlmarkdown:1
+quicklook-json:1
+qlprettypatch:1
+quicklook-csv:1
+betterzipql:1
+qlimagesize:1
+webpquicklook:1
+suspicious-packag:1
 
 # gnu
 grep:0
