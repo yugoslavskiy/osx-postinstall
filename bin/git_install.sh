@@ -37,7 +37,15 @@ else
   NORMAL=""
 fi
 
-source defaults.sh
+#source defaults.sh
+
+SRC_DIR=~/src
+BIN_DIR=~/bin
+GIT_UPDATE=n
+LIST_TOOLS=n
+TOOL_NAME=all
+GIT_TOOLS_DIR=../data/tools/git-tools
+VERBOSE=n
 
 usage() {
   echo "${BOLD}Usage:${NORMAL}"
