@@ -23,6 +23,7 @@ else
   NORMAL=""
 fi
 
+
 usage() {
 	echo ""
 	echo "${BOLD}Post-installation script for Mac OS X 10.11.${NORMAL}"
@@ -38,6 +39,8 @@ usage() {
 	echo "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}<options>${NORMAL}"
   echo ""
   echo "${BOLD}Options:${NORMAL}"
+  echo ""
+  echo "   ${BLUE}--all${NORMAL} 		Use ${GREEN}all${NORMAL} options (below)."
   echo ""
   echo "   ${BLUE}--bb_first${NORMAL} 		Force install ${GREEN}BlockBlock${NORMAL} first to control Launch Agents installations."
   echo ""
@@ -58,6 +61,7 @@ usage() {
 while test "$#" != 0; do
     case "$1" in
         --help|-h) usage; exit 0 ;;
+        --all) ALL_OPT=y ;;
         --bb_first) BB_FIRST=y ;;
 				--osxlockdown) OSX_LOCKDOWN=y ;;
         --osxdefaults) OSX_DEFAULTS=y ;;
@@ -71,6 +75,18 @@ while test "$#" != 0; do
     esac
     shift
 done
+
+
+[ "${ALL_OPT}" = "y" ] && {
+	BB_FIRST=y;
+	OSX_LOCKDOWN=y;
+	OSX_DEFAULTS=y;
+	DOTFILES=y;
+	MSF=y;
+	ST3=y;
+	GIT_INSTALL=y;
+}
+
 
 source defaults.sh
 
@@ -169,7 +185,7 @@ fi
 
 [ "${OSX_LOCKDOWN}" = "y" ] && {
 	printf "${BLUE}[*]${NORMAL} Applying ${GREEN}OSX Lockdown${NORMAL} security settings...\n"
-	source osxlockdown.sh >& /dev/null
+	./osxlockdown.sh >& /dev/null
 	printf "${GREEN}[+] OSX Lockdown${NORMAL} security settings are applied.\n"
 }
 

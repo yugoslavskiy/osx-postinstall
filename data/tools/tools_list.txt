@@ -133,7 +133,7 @@ quicklook-csv:1
 betterzipql:1
 qlimagesize:1
 webpquicklook:1
-suspicious-packag:1
+suspicious-package:1
 
 # gnu
 grep:0
