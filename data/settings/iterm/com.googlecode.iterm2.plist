@@ -9,7 +9,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -554,7 +554,7 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>269 545 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>2 565 970 459 0 0 1680 1027 </string>
+	<string>0 316 1370 711 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>710 562 970 459 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_127A9A4C-B4B6-4255-BD0E-2D9F9EAE24B7</key>
@@ -1249,7 +1249,7 @@
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
 	<key>NoSyncLastTipTime</key>
-	<real>480808219.40277702</real>
+	<real>481854867.58928299</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1278,6 +1278,16 @@
 		<string>0014</string>
 		<string>0015</string>
 		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>

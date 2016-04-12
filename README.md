@@ -4,7 +4,7 @@ Set of post-installation scripts for OS X 10.11 (El Capitan)
 
 ## About
 
-### Main thing
+### The main objective
 
 Script install [BlockBlock](https://objective-see.com/products/blockblock.html) and apply [OS X Lockdown](https://github.com/SummitRoute/osxlockdown) settings (optionally) ***before*** all installations. So, you can control Launch Agents installations with BlockBlock and pray for OSX Lockdown hardening settings, because there is [no](http://www.pcworld.com/article/3035682/security/hackers-planted-a-backdoor-inside-a-compromised-version-of-linux-mint.html) [silver](http://www.macrumors.com/2016/03/07/transmission-malware-downloaded-6500-times/) [bullet](http://arstechnica.com/security/2015/07/how-a-russian-hacker-made-45000-selling-a-zero-day-flash-exploit-to-hacking-team/). Whatever, we will do all possible for it, right?
 
@@ -63,7 +63,7 @@ For more info:
 - `cat osxlockdown.sh` (not all options enabled by default! see comments)
 - `cat sublime_setup.sh`
 
-## Manual installations
+## Manual-only installations
 
 ### Karabiner
 
@@ -79,7 +79,7 @@ After that, reload iTerm.
 
 ### SUIDGuard
 
-Download and install [SUIDGuard](https://github.com/sektioneins/SUIDGuard). (WARNING: [BUG WITH UPDATE FORM 10.11.3 TO 10.11.4](https://github.com/sektioneins/SUIDGuard/issues/12))
+Download and install [SUIDGuard](https://github.com/sektioneins/SUIDGuard). (WARNING: [SUIDGuard crashes on 10.11.4 on boot](https://github.com/sektioneins/SUIDGuard/issues/12))
 
 ## TO-DO
 

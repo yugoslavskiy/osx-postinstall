@@ -85,18 +85,17 @@ macpaw-gemini:1
 karabiner:1
 midnight-commander:0
 xquartz:1
-#rdesktop:0
 font-meslo-lg-for-powerline:1
 paragon-ntfs:1
 
 # network
-gns3:1
-httpie:0
+proxychains-ng:0
+#gns3:1
+#httpie:0
 wireshark:1
 netcat:0
 iperf:0
 ngrep:0
-proxychains-ng:0
 
 # archivators
 unar:0
@@ -121,7 +120,7 @@ microsoft-office:1
 wkhtmltopdf:1
 xmind:1
 
-# Quick Look plugins
+# quick Look plugins
 # https://github.com/sindresorhus/quick-look-plugins
 qlmarkdown:1
 qlcolorcode:1
@@ -153,10 +152,10 @@ vlc:1
 # cloud drivers
 dropbox:1
 
-# virtualisation
-docker-machine-parallels:0
-docker:0
-boot2docker:0
+# virtualization
+#docker-machine-parallels:0
+#docker:0
+#boot2docker:0
 qemu:0
 virtualbox:1
 parallels-desktop:1
@@ -170,7 +169,7 @@ firefox:1
 chromium:1
 
 # messengers & voice
-#telegram:1
+#telegram:1 # old version without encryption
 skype:1
 #viber:1
 #x-lite:1
@@ -179,7 +178,7 @@ skype:1
 openssh:0
 osxfuse:1
 sshfs:1
-sshuttle:0
+#sshuttle:0
 autossh:0
 ssh-copy-id:0
 
