@@ -22,7 +22,7 @@
 	"always_show_minimap_viewport": false,
 	
 	// Layout
-	"draw_centered": true,
+	"draw_centered": false,
 	"word_wrap": true,
 	"wrap_width": 118,
 	"rulers": [118],
