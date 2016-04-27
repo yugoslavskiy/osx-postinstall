@@ -24,14 +24,14 @@ fi
 ST3_SETTINGS_FOLDER=$1
 
 usage() {
-	printf "${BOLD}Usage:${NORMAL}\n\n"
-	printf "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}path/to/folder/with/sublime_text/config/files${NORMAL}\n\n"
+  printf "${BOLD}Usage:${NORMAL}\n\n"
+  printf "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}path/to/folder/with/sublime_text/config/files${NORMAL}\n\n"
 }
 
 [ -z "${ST3_SETTINGS_FOLDER}" ] && { 
-	printf "\n${RED}[!] Error: no path/to/folder/with/sublime_text/config/files provided.${NORMAL}\n\n"
-	usage;
-	exit 1;
+  printf "\n${RED}[!] Error: no path/to/folder/with/sublime_text/config/files provided.${NORMAL}\n\n"
+  usage;
+  exit 1;
 }
 
 USER_SETTINGS_FOLDER="$HOME/Library/Application Support/Sublime Text 3/Packages/User"
@@ -41,12 +41,12 @@ PACKAGE_CONTROL_FOLDER="$HOME/Library/Application Support/Sublime Text 3/Install
 printf "${GREEN}[+]${NORMAL} Creating ${GREEN}subl${NORMAL} - command line ST3 launcher...\n"
 mkdir -p ~/bin;
 ln -sfhv "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" ~/bin/subl >& /dev/null || {
-	printf "\n${RED}[!] Error: Package Control installation failed.${NORMAL}\n"
+  printf "\n${RED}[!] Error: Package Control installation failed.${NORMAL}\n"
 }
 
 printf "${GREEN}[+]${NORMAL} Installing ${GREEN}Package Control${NORMAL}...\n"
 wget https://packagecontrol.io/Package%20Control.sublime-package -O "$PACKAGE_CONTROL_FOLDER" >& /dev/null || {
-	printf "\n${RED}[!] Error: Package Control installation failed.${NORMAL}\n"
+  printf "\n${RED}[!] Error: Package Control installation failed.${NORMAL}\n"
 }
 
 cd ${ST3_SETTINGS_FOLDER}

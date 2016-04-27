@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -22,44 +22,44 @@ fi
 TOOLS_LIST=$1
 
 usage() {
-	printf "${BOLD}Usage:${NORMAL}\n\n"
-	printf "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}path/to/tools_list.txt${NORMAL}\n\n"
+  printf "${BOLD}Usage:${NORMAL}\n\n"
+  printf "   ${GREEN}./$(basename "$0")${NORMAL} ${BLUE}path/to/tools_list.txt${NORMAL}\n\n"
 }
 
 [ -z "${TOOLS_LIST}" ] && { 
-	printf "\n${RED}[!] Error: no path/to/tools_list.txt provided.${NORMAL}\n\n"
-	usage;
-	exit 1;
+  printf "\n${RED}[!] Error: no path/to/tools_list.txt provided.${NORMAL}\n\n"
+  usage;
+  exit 1;
 }
 
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 command_list=(
-	"brew install" 
-	"brew cask install" 
-	"pip install" 
-	"gem install" 
-	"brew tap" 
-	"vagrant plugin install" 
+  "brew install" 
+  "brew cask install" 
+  "pip install" 
+  "gem install" 
+  "brew tap" 
+  "vagrant plugin install" 
 )
 
 declare -a errors
 
 cat $TOOLS_LIST | grep -v "#" | tr -s '[:space:]' | sed '/^$/d' | while read line; 
 do
-	tool=$(   echo ${line} | cut -d ':' -f 1 );
-	number=$( echo ${line} | cut -d ':' -f 2 );
+  tool=$(   echo ${line} | cut -d ':' -f 1 );
+  number=$( echo ${line} | cut -d ':' -f 2 );
 
-	# In case of manual launch agent adding (for example, tor:6)
-	if [ ${number} = 6 ] ; then
-		mkdir -p ~/Library/LaunchAgents;
-		ln -sfv /usr/local/opt/${tool}/*.plist ~/Library/LaunchAgents;
+  # In case of manual launch agent adding (for example, tor:6)
+  if [ ${number} = 6 ] ; then
+    mkdir -p ~/Library/LaunchAgents;
+    ln -sfv /usr/local/opt/${tool}/*.plist ~/Library/LaunchAgents;
   else
-		${command_list["${number}"]} ${tool} || {
-			printf "\n${RED}[!] Error: ${tool} installation failed.${NORMAL}\n\n"
-			errors+=(fail)
-  	}
-	fi
+    ${command_list["${number}"]} ${tool} || {
+      printf "\n${RED}[!] Error: ${tool} installation failed.${NORMAL}\n\n"
+      errors+=(fail)
+    }
+  fi
 done
 
 brew cleanup --force >& /dev/null;

@@ -11,7 +11,7 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-# OSXLockdown set (Security Settings) 										  								  #
+# OSXLockdown set (Security Settings)                                         #
 ###############################################################################
 
 # Verify all application software is current
@@ -36,22 +36,22 @@ sudo systemsetup setusingnetworktime off
 # Set an inactivity interval of 10 minutes or less for the screen saver
 UUID=`ioreg -rd1 -c IOPlatformExpertDevice | grep "IOPlatformUUID" | sed -e 's/^.*"\(.*\)"$/\1/'`;
 for i in $(find /Users -type d -maxdepth 1); do
-	PREF=$i/Library/Preferences/ByHost/com.apple.screensaver.$UUID;
-	if [ -e $PREF.plist ]; then
-		defaults -currentHost write $PREF.plist idleTime -int 600;
-	fi
+  PREF=$i/Library/Preferences/ByHost/com.apple.screensaver.$UUID;
+  if [ -e $PREF.plist ]; then
+    defaults -currentHost write $PREF.plist idleTime -int 600;
+  fi
 done
 
 # Enable secure screen saver corners
 for i in $(find /Users -type d -maxdepth 1); do 
-	PREF=$i/Library/Preferences/com.apple.dock.plist; 
-	if [ -e $PREF ]; then 
-		CORNER=$(defaults read $PREF | grep corner | grep 6) && {
-			if [ -n "$CORNER" ]; then 
-				defaults write $PREF wvous-tr-corner 5; 
-			fi
-		} 
-	fi
+  PREF=$i/Library/Preferences/com.apple.dock.plist; 
+  if [ -e $PREF ]; then 
+    CORNER=$(defaults read $PREF | grep corner | grep 6) && {
+      if [ -n "$CORNER" ]; then 
+        defaults write $PREF wvous-tr-corner 5; 
+      fi
+    } 
+  fi
 done
 
 # Require a password to wake the computer from sleep or screen saver
@@ -119,10 +119,10 @@ rm -f /tmp/system.preferences.plist
 
 # Disable IPv6
 networksetup -listallnetworkservices | while read i; do 
-	SUPPORT=$(networksetup -getinfo "$i" | grep "IPv6: Automatic") 
-	if [ -n "$SUPPORT" ]; then 
-		sudo networksetup -setv6off "$i";
-	fi
+  SUPPORT=$(networksetup -getinfo "$i" | grep "IPv6: Automatic") 
+  if [ -n "$SUPPORT" ]; then 
+    sudo networksetup -setv6off "$i";
+  fi
 done
 
 # Disable Previews
@@ -145,13 +145,13 @@ defaults write com.apple.mail-shared DisableURLLoading -bool true
 
 # Verify no HTTP update URLs for Sparkle Updater
 for i in /Applications/*/Contents/Info.plist; do
-	URL=$(defaults read "$i" SUFeedURL 2>/dev/null | grep "http://");
-	APP=$(echo $i | cut -d "/" -f 3);
-	if [ -n "$URL" ]; then
-		echo ''
-		echo 'WARNING:'
-		echo "$APP updates itself using HTTP!"
-	fi
+  URL=$(defaults read "$i" SUFeedURL 2>/dev/null | grep "http://");
+  APP=$(echo $i | cut -d "/" -f 3);
+  if [ -n "$URL" ]; then
+    echo ''
+    echo 'WARNING:'
+    echo "$APP updates itself using HTTP!"
+  fi
 done
 
 ## Some additional stuff
