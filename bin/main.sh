@@ -134,7 +134,7 @@ else
 fi
 
 ################################################################################
-## BlockBlock                                                                  #
+# BlockBlock                                                                   #
 ################################################################################
 
 # If '--bb_first' flag is set and app does not exists, download it
@@ -238,9 +238,9 @@ fi
   source git_install.sh --git_tools_dir ${PATH_TO_GIT_TOOLS}
 }
 
-#############################################################################
+###############################################################################
 # OSX Defaults settings                                                       #
-#############################################################################
+###############################################################################
 
 [ "${OSX_DEFAULTS}" = "y" ] && {
   printf "${BLUE}[*]${NORMAL} Applying ${GREEN}OSX Defaults${NORMAL} settings...\n"
@@ -248,7 +248,7 @@ fi
   printf "${GREEN}[+] OSX Defaults${NORMAL} settings are applied.\n"
 }
 
-# -Done-----------------------------------------------------------------------#
+#--Done-----------------------------------------------------------------------#
 
 printf "\n${YELLOW}[i]${NORMAL} Don't forget to:"
 printf "\n${YELLOW}[i]${NORMAL} Check the above output (Did everything install? Any errors? (${RED}HINT: What's in RED${NORMAL}?)\n\n"
