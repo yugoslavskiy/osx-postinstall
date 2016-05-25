@@ -5,27 +5,31 @@
 		"mdown",
 		"txt"
 	],
+	//"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
 
+	//"color_scheme": "Packages/MarkdownEditing/MarkdownEditor.tmTheme",
+	 //"color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme",
 	"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
-	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme",
+
 	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Yellow.tmTheme",
 
 	// This is a quick and dirty focus theme. In order to make it work, you've to
 	// set `"highlight_line": true,` in this settings file. It is likely that there will
 	// be more mature focus improvements in the future (maybe similar to iA Writer).
-	// "color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Focus.tmTheme",
+	//"color_scheme": "Packages/MarkdownEditing/MarkdownEditor-Focus.tmTheme",
+	//"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+
 
 	"tab_size": 2,
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": false,
 	"auto_match_enabled": true,
-	"always_show_minimap_viewport": false,
-	
+
 	// Layout
 	"draw_centered": false,
 	"word_wrap": true,
-	"wrap_width": 118,
-	"rulers": [118],
+	"wrap_width": 100,
+	"rulers": [],
 
 	// Line
 	"line_numbers": true,
@@ -51,6 +55,9 @@
 	// List bullets to be used for automatically switching. In their order.
 	"mde.list_indent_bullets": ["*", "-", "+"],
 
+	// Auto increments ordered list number. Set to false if you want always "1".
+	"mde.auto_increment_ordered_list_number": true,
+
 	// Always keep current line vertically centered.
 	"mde.keep_centered": false,
 
@@ -60,7 +67,7 @@
 		"mde.keep_centered": true
 	},
 	
-	"mde.lint":{
+	"mde.lint": {
 		// disabled rules, e.g. "md001".
 		"disable": ["md013"],
 		// Options:
@@ -89,6 +96,16 @@
 		// 		one,		'1.' only
 		// 		ordered,	ascending number
 		// 		any,		consistent within one list
-		"md029": "any"
+		"md029": "any",
+		// Number of spaces after list markers depending on list type.
+		// (ordered vs unordered, single-line vs multi-line)
+		"md030": {
+			"ul_single": 1,
+			"ol_single": 1,
+			// optinally, 3
+			"ul_multi": 1,
+			// optionaly, 2
+			"ol_multi": 1
+		}
 	}
 }
