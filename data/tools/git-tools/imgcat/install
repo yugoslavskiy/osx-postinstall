@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+BIN_FOLDER=$1
+TOOL_NAME=${PWD##*/}
+URL=https://gist.githubusercontent.com/yugoslavskiy/fb5dbad27447cf8525cae43ac21afb48/raw/27232adf204635f653d5b0867733d1bc2d8e1927/imgcat.sh
+
+sudo curl -o ${BIN_FOLDER}/${TOOL_NAME} -O ${URL} && {
+    sudo chmod +x ${BIN_FOLDER}/${TOOL_NAME}
+    echo "${BIN_FOLDER}" > current_installation
+    exit 0
+}
+
+exit 104
