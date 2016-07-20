@@ -1,0 +1,22 @@
+<snippet>
+	<content><![CDATA[
+# ${1}
+
+__created_date__: ${2}
+__last_update_date__: ${3}
+__author__: @yugoslavskiy ${4}
+
+## Contents
+
+TODO ${5}
+
+## Description
+
+${0}
+
+]]></content>
+	<!-- Optional: Set a tabTrigger to define how to trigger the snippet -->
+	<tabTrigger>init</tabTrigger>
+	<!-- Optional: Set a scope to limit where the snippet will trigger -->
+	<!-- <scope>source.python</scope> -->
+</snippet>
