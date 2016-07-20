@@ -21,8 +21,8 @@ sudo softwareupdate -i -a
 sudo softwareupdate --schedule on
 
 # Disable Bluetooth
-sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0;
-sudo killall -HUP blued
+#sudo defaults write /Library/Preferences/com.apple.Bluetooth ControllerPowerState -int 0;
+#sudo killall -HUP blued
 
 # Disable infrared receiver
 sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -int 0
@@ -30,15 +30,15 @@ sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController Devi
 # Disable AirDrop
 defaults write com.apple.NetworkBrowser DisableAirDrop -bool YES
 
-# Set time and date automatically
+# Set time and date manually
 sudo systemsetup setusingnetworktime off
 
-# Set an inactivity interval of 10 minutes or less for the screen saver
+# Set an inactivity interval of 1000 minutes or less for the screen saver 
 UUID=`ioreg -rd1 -c IOPlatformExpertDevice | grep "IOPlatformUUID" | sed -e 's/^.*"\(.*\)"$/\1/'`;
 for i in $(find /Users -type d -maxdepth 1); do
   PREF=$i/Library/Preferences/ByHost/com.apple.screensaver.$UUID;
   if [ -e $PREF.plist ]; then
-    defaults -currentHost write $PREF.plist idleTime -int 600;
+    defaults -currentHost write $PREF.plist idleTime -int 60000;
   fi
 done
 
