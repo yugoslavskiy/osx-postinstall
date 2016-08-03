@@ -52,5 +52,6 @@
 	"material_theme_tree_headings": true,
 	"overlay_scroll_bars": "enabled",
 	"tab_size": 2,
-	"theme": "Material-Theme.sublime-theme"
+	"theme": "Material-Theme.sublime-theme",
+	"word_wrap": "auto"
 }
