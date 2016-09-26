@@ -1,11 +1,12 @@
+
 #!/usr/bin/env bash
 
 BIN_FOLDER=$1
 TOOL_NAME=${PWD##*/}
-URL=https://gist.githubusercontent.com/yugoslavskiy/8c51a6af08b58f42dccc/raw/de1868850024f3f364a86192d51a78f515a5aa51/sublime_clean
+URL=https://gist.githubusercontent.com/yugoslavskiy/8c51a6af08b58f42dccc/raw/2ac89425d1c088863c253c1b7d88bd4e002c2dff/sublime_clean
 
-sudo curl -o ${BIN_FOLDER}/${TOOL_NAME} -O ${URL} && {
-    sudo chmod +x ${BIN_FOLDER}/${TOOL_NAME}
+curl -o ${BIN_FOLDER}/${TOOL_NAME} -O ${URL} && {
+    chmod +x ${BIN_FOLDER}/${TOOL_NAME}
     echo "${BIN_FOLDER}" > current_installation
     exit 0
 }
