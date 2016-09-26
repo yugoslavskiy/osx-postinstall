@@ -2,10 +2,10 @@
 
 BIN_FOLDER=$1
 TOOL_NAME=${PWD##*/}
-URL=https://gist.githubusercontent.com/yugoslavskiy/538a473222923a4b9ec1/raw/118548434d55f701742c600a822735f934b3ed9a/generate_ssh_rsa_keys
+URL=https://gist.githubusercontent.com/yugoslavskiy/538a473222923a4b9ec1/raw/c995eb1f99e3994966c08817f45bd81143ebbb5e/generate_ssh_rsa_keys
 
-sudo curl -o ${BIN_FOLDER}/${TOOL_NAME} -O ${URL} && {
-    sudo chmod +x ${BIN_FOLDER}/${TOOL_NAME}
+curl -o ${BIN_FOLDER}/${TOOL_NAME} -O ${URL} && {
+    chmod +x ${BIN_FOLDER}/${TOOL_NAME}
     echo "${BIN_FOLDER}" > current_installation
     exit 0
 }
