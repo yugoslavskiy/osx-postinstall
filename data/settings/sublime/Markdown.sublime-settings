@@ -35,8 +35,8 @@
 	// Line
 	"line_numbers": true,
 	"highlight_line": true,
-	"line_padding_top": 2,
-	"line_padding_bottom": 2,
+	"line_padding_top": 1,
+	"line_padding_bottom": 1,
 
 	// Caret
 	"caret_style": "wide",   // "wide" is deprecated starting with ST Build 3057.
