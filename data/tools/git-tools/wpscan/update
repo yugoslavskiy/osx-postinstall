@@ -6,6 +6,7 @@ TOOL_NAME=${PWD##*/}
 cd ${SRC_FOLDER}/${TOOL_NAME} || exit 101
 
 git pull || exit 116
+bundle install
 ruby wpscan.rb --update || exit 113
 
 exit 0
