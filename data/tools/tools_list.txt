@@ -52,8 +52,10 @@ zsh:0
 bash:0
 python:0
 python3:0
+go:0
 java:1
 bundler:3
+ansible:0
 
 # compilers
 autoconf:0
@@ -63,7 +65,7 @@ automake:0
 # db
 sqlite:0
 #mongodb:0
-mysql:0
+#mysql:0
 
 # dev
 --upgrade pip:2
@@ -87,6 +89,7 @@ midnight-commander:0
 xquartz:1
 font-meslo-lg-for-powerline:1
 paragon-ntfs:1
+keybase:0
 
 # network
 proxychains-ng:0
@@ -119,6 +122,7 @@ microsoft-office:1
 #openoffice:1
 wkhtmltopdf:1
 xmind:1
+#doxygen:0
 
 # quick Look plugins
 # https://github.com/sindresorhus/quick-look-plugins
@@ -154,14 +158,14 @@ dropbox:1
 
 # virtualization
 #docker-machine-parallels:0
-#docker:0
+docker:0
 #boot2docker:0
 qemu:0
 virtualbox:1
 parallels-desktop:1
 vagrant:1
 vagrant-manager:1
-vagrant-parallels:5
+#vagrant-parallels:5
 
 # browsers
 #google-chrome:1
@@ -207,7 +211,7 @@ fcrackzip:0
 hydra:0
 ipv6toolkit:0
 john-jumbo:0
-reaver:0
+#reaver:0
 skipfish:0
 sqlmap:0
 theharvester:0
@@ -222,6 +226,7 @@ hashcat:1
 hping:0
 nikto:0
 hex-fiend:1
+radare2:0
 
 # python
 ipwhois:2
