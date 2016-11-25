@@ -501,6 +501,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -552,11 +554,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>893 182 706 228 0 0 1680 1027 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>2034 724 606 456 1680 150 1920 1057 </string>
+	<string>2036 545 606 456 1680 -30 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1701 151 1682 1056 1680 150 1920 1057 </string>
+	<string>341 569 970 459 0 0 1680 1028 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>2630 742 970 459 1680 150 1920 1057 </string>
+	<string>-200 1649 970 459 -203 1050 1920 1058 </string>
 	<key>NeverWarnAboutShortLivedSessions_127A9A4C-B4B6-4255-BD0E-2D9F9EAE24B7</key>
 	<true/>
 	<key>New Bookmarks</key>
@@ -1248,8 +1250,10 @@
 	<true/>
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
+	<key>NoSyncInstallationId</key>
+	<string>FF706F53-E3D3-432D-BC35-0BB4BD5F9432</string>
 	<key>NoSyncLastTipTime</key>
-	<real>485538975.01703697</real>
+	<real>485918037.60394901</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1324,6 +1328,9 @@
 		<string>0060</string>
 		<string>0061</string>
 		<string>0062</string>
+		<string>0063</string>
+		<string>0064</string>
+		<string>0065</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<false/>
@@ -1393,7 +1400,7 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>https://iterm2.com/appcasts/nightly.xml</string>
+	<string>https://iterm2.com/appcasts/nightly.xml?shard=46</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SUSendProfileInfo</key>
@@ -1455,7 +1462,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>2.9.20160228-nightly</string>
+	<string>3.0.20161002-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
